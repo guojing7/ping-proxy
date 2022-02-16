@@ -1,0 +1,27 @@
+[package]
+name = "ping-proxy"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+authors = ["guojing <srson.hd@gmail.com>"]
+description = "A utility to send ICMP request packets through a proxy agent"
+repository = "https://github.com/guojing7/ping-proxy"
+homepage = "https://github.com/guojing7/ping-proxy"
+keywords = ["icmp", "network", "ping", "utility"]
+categories = ["command-line-utilities", "network-programming"]
+
+[dependencies]
+tokio = { version = "1.14.1", features = ["full"] }
+signal-hook = { version = "0.3.13" }
+signal-hook-tokio = { version = "0.3.1", features = ["futures-v0_3"] }
+futures = { version = "0.3.19" }
+socket2 = { version = "0.4", features = ["all"] }
+buf-view = "0.1.0"
+
+[[bin]]
+name="ping"
+path="src/ping/main.rs"
+
+[[bin]]
+name="proxy"
+path="src/proxy/main.rs"
